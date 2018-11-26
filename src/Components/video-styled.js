@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {mainThemeColor} from "./main-styled";
 
 export const VideoContainer = styled.div`
   width: 100%;
@@ -14,7 +15,7 @@ export const BackButton = styled.button`
   height: 40px;
   font-size: 12px;
   display: inline-block;
-  background-color: #64528f;
+  background-color: ${mainThemeColor};
   color: white;
   text-transform: uppercase;
   font-weight: bold;

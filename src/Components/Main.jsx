@@ -148,7 +148,7 @@ export default class TwitchApp extends PureComponent<> {
     return (
       <Fragment>
         <Logo />
-        <TwitchContainer>
+        <TwitchContainer isFetching={this.state.isFetching}>
           {this.renderSearchSection()}
           {this.renderVideoStream()}
         </TwitchContainer>

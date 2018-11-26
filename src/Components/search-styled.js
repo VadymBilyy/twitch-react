@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {mainThemeColor} from "./main-styled";
 
 export const SearchContainer = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ export const SearchInput = styled.input`
   background-color: white;
   margin-right: 16px;
   appearance: none;
-  border: 1px solid #64528f;
+  border: 1px solid ${mainThemeColor};
 
   &:active,
   &:focus {
@@ -32,7 +33,7 @@ export const SearchInput = styled.input`
 export const SearchButton = styled.button`
   height: 40px;
   font-size: 12px;
-  background-color: #64528f;
+  background-color: ${mainThemeColor};
   text-transform: uppercase;
   display: inline-block;
   color: white;
@@ -52,5 +53,5 @@ export const ResNum = styled.span`
   margin-right: 12px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #64528f;
+  color: ${mainThemeColor};
 `;

@@ -1,5 +1,8 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import twitchLogo from "./twitch.png";
+import loading from "./loading.gif";
+
+export const mainThemeColor = "#64528f";
 
 export const StreamsContainer = styled.div`
   margin-top: 16px;
@@ -10,7 +13,7 @@ export const StreamsContainer = styled.div`
 
 export const Footer = styled.footer`
   height: 50px;
-  background-color: #64528f;
+  background-color: ${mainThemeColor};
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -31,6 +34,23 @@ export const Credits = styled.span`
 export const TwitchContainer = styled.div`
   position: relative;
   padding: 20px 16px 30px;
+
+  ${props => props.isFetching && css`
+
+    ::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: ${mainThemeColor};
+      background-image: url("${loading}");
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.7;
+    }
+`}
 
   & h3,
   & h4 {
