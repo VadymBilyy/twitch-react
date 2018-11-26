@@ -32,7 +32,7 @@ export default class SearchComponent extends Component<> {
           <SearchInput
             type="text"
             placeholder="find your channel..."
-            onChange={this.props.onSearchChange}
+            onChange={e => this.props.updateState(e, "gameName")}
             onKeyPress={this.enterKeyHandler}
           />
           <SearchButton onClick={this.props.onStartSearch}>Search</SearchButton>
@@ -42,7 +42,7 @@ export default class SearchComponent extends Component<> {
           <ResultsNumInput
             type="number"
             value={this.props.numResults}
-            onChange={this.props.onNumResultsChange}
+            onChange={e => this.props.updateState(e, "numResults")}
           />
         </ResultNumContainer>
       </Fragment>

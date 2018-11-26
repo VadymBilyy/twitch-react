@@ -3,8 +3,9 @@ import React, { PureComponent, Fragment } from "react";
 import { get, find } from "lodash";
 import {
   StreamsContainer,
-  MainContainer,
   TwitchContainer,
+  Footer,
+  Credits,
   Logo
 } from "./main-styled";
 import PreviewItem from "./PreviewItem";
@@ -30,11 +31,13 @@ export default class TwitchApp extends PureComponent<> {
   constructor(props) {
     super(props);
 
+    const numResults = localStorage.getItem("numResults") || 10;
+
     this.state = {
       isFetching: false,
       isStreamShown: false,
       gameName: "",
-      numResults: 10,
+      numResults,
       streamToView: "",
       availableStreams: [],
       selectedStream: 0
@@ -42,9 +45,7 @@ export default class TwitchApp extends PureComponent<> {
   }
 
   componentDidMount() {
-    // read number of results from localStorage and set it to state
-    // fetch 10 default streams
-    this.searchStreams();
+    this.searchStreams(true, "", this.state.numResults);
   }
 
   onBackButtonClick = () => {
@@ -54,12 +55,16 @@ export default class TwitchApp extends PureComponent<> {
   };
 
   searchStreams = async (isDefault = true, game = "", limit) => {
+    this.setState({
+      isFetching: true,
+      isStreamShown: false
+    });
     const streams = await getStreams(isDefault, game, limit);
     const availableStreams = get(streams, "data.streams");
-    console.log(availableStreams);
 
     this.setState({
-      availableStreams
+      availableStreams,
+      isFetching: false
     });
   };
 
@@ -70,37 +75,35 @@ export default class TwitchApp extends PureComponent<> {
     });
   };
 
-  onSearchChange = e => {
+  updateState = (e, field) => {
     e.preventDefault();
     e.stopPropagation();
 
-    const gameName = e.target.value;
+    const newState = {};
+    const newValue = get(e, "target.value");
+    newState[field] = newValue;
+
+    field === "numResults" && localStorage.setItem("numResults", newValue);
 
     this.setState({
-      gameName
+      ...newState
     });
   };
 
-  changeResultsNumber = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    const numResults = e.target.value;
+  renderStreamPage = () => (
+    <StreamsContainer>
+      {this.state.isStreamShown
+        ? this.renderStreamView()
+        : renderStreams(this.state.availableStreams, this.setStreamtToView)}
+    </StreamsContainer>
+  );
 
-    this.setState({
-      numResults
-    });
-  };
-
-  renderStreamPage = () =>
-    this.state.isStreamShown ? (
-      this.renderStreamView()
-    ) : (
-      <StreamsContainer>
-        {renderStreams(this.state.availableStreams, this.setStreamtToView)}
-      </StreamsContainer>
-    );
-
-  renderEmptyState = () => {};
+  renderEmptyState = () => (
+    <div>
+      <h3>no streams to show</h3>
+      <h4>try again or verify stream that you are looking</h4>
+    </div>
+  );
 
   renderStreamView = () => {
     const streamToShow = getStream(
@@ -119,28 +122,38 @@ export default class TwitchApp extends PureComponent<> {
     return <VideoComponent stream={stream} onBack={this.onBackButtonClick} />;
   };
 
+  renderSearchSection = () => (
+    <SearchComponent
+      onStartSearch={() => {
+        this.searchStreams(false, this.state.gameName, this.state.numResults);
+      }}
+      updateState={this.updateState}
+      numResults={this.state.numResults}
+    />
+  );
+
+  renderVideoStream = () => {
+    return this.state.availableStreams.length
+      ? this.renderStreamPage()
+      : this.renderEmptyState();
+  };
+
+  renderFooterSection = () => (
+    <Footer>
+      <Credits>special for Blip</Credits>
+    </Footer>
+  );
+
   render() {
     return (
-      <TwitchContainer>
+      <Fragment>
         <Logo />
-        <SearchComponent
-          onStartSearch={() =>
-            this.searchStreams(
-              false,
-              this.state.gameName,
-              this.state.numResults
-            )
-          }
-          onNumResultsChange={this.changeResultsNumber}
-          numResults={this.state.numResults}
-          onSearchChange={this.onSearchChange}
-        />
-        <MainContainer>
-          {this.state.availableStreams.length
-            ? this.renderStreamPage()
-            : this.renderEmptyState()}
-        </MainContainer>
-      </TwitchContainer>
+        <TwitchContainer>
+          {this.renderSearchSection()}
+          {this.renderVideoStream()}
+        </TwitchContainer>
+        {this.renderFooterSection()}
+      </Fragment>
     );
   }
 }

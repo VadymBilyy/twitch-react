@@ -17,12 +17,12 @@ export const PreviewContainer = styled.button`
   align-items: center;
   justify-content: center;
   outline: none;
-  box-shadow: 3px 3px 3px 3px #64528f;
-  transition: box-shadow 0.5s;
+  box-shadow: 2px 2px 2px 2px #64528f;
+  transition: box-shadow 0.3s;
   cursor: pointer;
   
   &:hover {
-    box-shadow: 3px 3px 5px 6px #64528f;
+    box-shadow: 3px 3px 6px 7px #64528f;
   }
 
   & img {
