@@ -38,11 +38,19 @@ describe("Main component tests", () => {
     expect(component.instance().state.availableStreams).toEqual(mockStreams);
   });
 
-  test("Renders TwitchApp with streams", async () => {
+  test("Search live streams", async () => {
     const component = mount(<TwitchApp />);
     component.instance().searchStreams = jest.fn();
-    component.find(SearchComponent).find("button").at(0).simulate("click");
-    expect(component.instance().searchStreams).toHaveBeenCalledWith(false, "", 10);
+    component
+      .find(SearchComponent)
+      .find("button")
+      .at(0)
+      .simulate("click");
+    expect(component.instance().searchStreams).toHaveBeenCalledWith(
+      false,
+      "",
+      10
+    );
   });
 
   test("Select stream", async () => {
@@ -85,13 +93,13 @@ describe("Main component tests", () => {
     expect(localStorage.setItem).toHaveBeenCalled();
   });
 
-    test("Back to view all available streams", async () => {
-        const component = mount(<TwitchApp />);
-        component.instance().setStreamtToView(31415105808);
-        expect(component.instance().state.isStreamShown).toEqual(true);
-        component.instance().onBackButtonClick();
-        expect(component.instance().state.isStreamShown).toEqual(false);
-    });
+  test("Back to view all available streams", async () => {
+    const component = mount(<TwitchApp />);
+    component.instance().setStreamtToView(31415105808);
+    expect(component.instance().state.isStreamShown).toEqual(true);
+    component.instance().onBackButtonClick();
+    expect(component.instance().state.isStreamShown).toEqual(false);
+  });
 
   test("Get selected stream", () => {
     expect(getStream(mockStreams, 31415105807)).toEqual(mockStreams[2]);
