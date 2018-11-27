@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {mainThemeColor} from "./main-styled";
+import {mainThemeColor} from "../Main/main-styled";
 
 export const SearchContainer = styled.div`
   display: flex;

@@ -1,6 +1,4 @@
-// @flow
 import axios from "axios";
-import {get} from "lodash";
 
 const apiKey = "2qvzq6agze7446rnr8nbbeujlr1j2z";
 

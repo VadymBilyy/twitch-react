@@ -1,4 +1,3 @@
-// @flow
 import React, { PureComponent, Fragment } from "react";
 import { get, find } from "lodash";
 import {
@@ -8,14 +7,16 @@ import {
   Credits,
   Logo
 } from "./main-styled";
-import PreviewItem from "./PreviewItem";
-import SearchComponent from "./Search";
-import VideoComponent from "./Video";
-import getStreams from "../Requests/getStreamsRequest";
+import PreviewItem from "../Preview/PreviewItem";
+import SearchComponent from "../Search/Search";
+import VideoComponent from "../Video/Video";
+import getStreams from "../../Requests/getStreamsRequest";
 
 export const renderStreams = (streams = [], callback) =>
   streams.map(stream => (
     <PreviewItem
+      qaLabel={`${stream._id}`}
+      key={stream._id}
       onPreviewClick={callback}
       streamName={stream.game}
       streamThumbnail={stream.channel.name}
@@ -38,7 +39,7 @@ export default class TwitchApp extends PureComponent<> {
       isStreamShown: false,
       gameName: "",
       numResults,
-      streamToView: "",
+      streamToViewId: "",
       availableStreams: [],
       selectedStream: 0
     };

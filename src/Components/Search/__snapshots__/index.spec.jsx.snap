@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component tests Renders default SearchComponent 1`] = `
+Array [
+  .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.c1 {
+  height: 40px;
+  width: 100%;
+  font-size: 12px;
+  border-radius: 2px;
+  text-indent: 8px;
+  box-sizing: border-box;
+  background-color: white;
+  margin-right: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #64528f;
+}
+
+.c1:active,
+.c1:focus {
+  outline: none;
+}
+
+.c2 {
+  height: 40px;
+  font-size: 12px;
+  background-color: #64528f;
+  text-transform: uppercase;
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  border-radius: 2px;
+  outline: none;
+}
+
+<div
+    className="c0"
+  >
+    <input
+      className="c1"
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="find your channel..."
+      type="text"
+    />
+    <button
+      className="c2"
+      onClick={[Function]}
+    >
+      Search
+    </button>
+  </div>,
+  .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.c2 {
+  height: 40px;
+  width: 100%;
+  font-size: 12px;
+  border-radius: 2px;
+  text-indent: 8px;
+  box-sizing: border-box;
+  background-color: white;
+  margin-right: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #64528f;
+  width: 50px;
+  text-align: center;
+  height: 20px;
+  margin-right: 0;
+}
+
+.c2:active,
+.c2:focus {
+  outline: none;
+}
+
+.c1 {
+  margin-right: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #64528f;
+}
+
+<div
+    className="c0"
+  >
+    <span
+      className="c1"
+    >
+      Number of results: 
+    </span>
+    <input
+      className="c2"
+      onChange={[Function]}
+      type="number"
+      value={10}
+    />
+  </div>,
+]
+`;

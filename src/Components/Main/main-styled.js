@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
-import twitchLogo from "./twitch.png";
-import loading from "./loading.gif";
+import twitchLogo from "../Assets/twitch.png";
+import loading from "../Assets/loading.gif";
 
 export const mainThemeColor = "#64528f";
 

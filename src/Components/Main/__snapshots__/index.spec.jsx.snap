@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main component tests Renders default TwitchApp 1`] = `
+Array [
+  .c0 {
+  height: 200px;
+  width: 100%;
+  background: url("twitch.png") no-repeat center;
+  background-size: contain;
+}
+
+<div
+    className="c0"
+  />,
+  .c0 {
+  position: relative;
+  padding: 20px 16px 30px;
+}
+
+.c0::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #64528f;
+  background-image: url("loading.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
+
+.c0 h3,
+.c0 h4 {
+  text-transform: uppercase;
+  color: red;
+  text-align: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.c2 {
+  height: 40px;
+  width: 100%;
+  font-size: 12px;
+  border-radius: 2px;
+  text-indent: 8px;
+  box-sizing: border-box;
+  background-color: white;
+  margin-right: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #64528f;
+}
+
+.c2:active,
+.c2:focus {
+  outline: none;
+}
+
+.c3 {
+  height: 40px;
+  font-size: 12px;
+  background-color: #64528f;
+  text-transform: uppercase;
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  border-radius: 2px;
+  outline: none;
+}
+
+.c6 {
+  height: 40px;
+  width: 100%;
+  font-size: 12px;
+  border-radius: 2px;
+  text-indent: 8px;
+  box-sizing: border-box;
+  background-color: white;
+  margin-right: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #64528f;
+  width: 50px;
+  text-align: center;
+  height: 20px;
+  margin-right: 0;
+}
+
+.c6:active,
+.c6:focus {
+  outline: none;
+}
+
+.c5 {
+  margin-right: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #64528f;
+}
+
+<div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      <input
+        className="c2"
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="find your channel..."
+        type="text"
+      />
+      <button
+        className="c3"
+        onClick={[Function]}
+      >
+        Search
+      </button>
+    </div>
+    <div
+      className="c4"
+    >
+      <span
+        className="c5"
+      >
+        Number of results: 
+      </span>
+      <input
+        className="c6"
+        onChange={[Function]}
+        type="number"
+        value={10}
+      />
+    </div>
+    <div>
+      <h3>
+        no streams to show
+      </h3>
+      <h4>
+        try again or verify stream that you are looking
+      </h4>
+    </div>
+  </div>,
+  .c0 {
+  height: 50px;
+  background-color: #64528f;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-right: 20px;
+}
+
+.c1 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+<footer
+    className="c0"
+  >
+    <span
+      className="c1"
+    >
+      special for Blip
+    </span>
+  </footer>,
+]
+`;

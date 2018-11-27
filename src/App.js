@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import App from "./Components/Main";
+import App from "./Components/Main/Main";
 
 export default class TwitchApp extends Component {
   render() {
