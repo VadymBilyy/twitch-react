@@ -56,17 +56,26 @@ export default class TwitchApp extends PureComponent<> {
   };
 
   searchStreams = async (isDefault = true, game = "", limit) => {
+    let streams = [];
     this.setState({
       isFetching: true,
       isStreamShown: false
     });
-    const streams = await getStreams(isDefault, game, limit);
-    const availableStreams = get(streams, "data.streams");
+    try {
+        streams = await getStreams(isDefault, game, limit);
+        const availableStreams = get(streams, "data.streams");
 
-    this.setState({
-      availableStreams,
-      isFetching: false
-    });
+        this.setState({
+            availableStreams,
+            isFetching: false
+        });
+    }
+    catch(e) {
+        this.setState({
+            availableStreams: [],
+            isFetching: false
+        });
+    }
   };
 
   setStreamtToView = streamToViewId => {
