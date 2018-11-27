@@ -1,4 +1,3 @@
-// @flow
 import React, { Component, Fragment } from "react";
 import { noop } from "lodash";
 

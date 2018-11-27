@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from "react";
 import { noop } from "lodash";
 
@@ -10,9 +9,7 @@ import {
   DescriptionContainer
 } from "./video-styled";
 
-type Props = {};
-
-export default class StreamComponent extends Component<Props> {
+export default class StreamComponent extends Component<> {
   static defaultProps = {
     stream: {
       game: "",
